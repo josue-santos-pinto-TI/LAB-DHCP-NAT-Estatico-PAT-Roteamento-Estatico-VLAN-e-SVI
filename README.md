@@ -177,10 +177,12 @@ O roteamento estático será utilizado para permitir a comunicação entre as re
 ### 6.1. Configuração no R1
 
 ```cisco
-ip route 0.0.0.0 0.0.0.0 FastEthernet0/0
+ip route 0.0.0.0 0.0.0.0 192.168.14.2
 
 ip route 192.168.10.0 255.255.255.0 10.0.0.2
 ip route 192.168.20.0 255.255.255.0 10.0.0.2
+
+ip default-gateway 192.168.14.2
 ```
 
 ### 6.2. Configuração no SW
@@ -235,7 +237,7 @@ ip access-list standard LAN
 O NAT Estático permite realizar o mapeamento fixo de um endereço IP interno para um endereço externo.
 
 ```cisco
-ip nat inside source static 192.168.100.100 interface FastEthernet0/0
+ip nat inside source static 172.16.0.100 interface FastEthernet0/0
 ```
 
 ### 7.4. Configurando o PAT (NAT Overload)
